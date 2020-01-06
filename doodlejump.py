@@ -6,19 +6,19 @@ import random
 class DoodleJump:
     def __init__(self):
         self.screen = pygame.display.set_mode((800, 600))
-        self.green = pygame.image.load("assets/green.png").convert_alpha()
+        self.green = pygame.image.load("assets/Desk.png").convert_alpha()
         pygame.font.init()
         self.score = 0
         self.font = pygame.font.SysFont("Arial", 25)
-        self.blue = pygame.image.load("assets/blue.png").convert_alpha()
-        self.red = pygame.image.load("assets/red.png").convert_alpha()
-        self.red_1 = pygame.image.load("assets/red_1.png").convert_alpha()
-        self.playerRight = pygame.image.load("assets/right.png").convert_alpha()
-        self.playerRight_1 = pygame.image.load("assets/right_1.png").convert_alpha()
-        self.playerLeft = pygame.image.load("assets/left.png").convert_alpha()
-        self.playerLeft_1 = pygame.image.load("assets/left_1.png").convert_alpha()
-        self.spring = pygame.image.load("assets/spring.png").convert_alpha()
-        self.spring_1 = pygame.image.load("assets/spring_1.png").convert_alpha()
+        self.blue = pygame.image.load("assets/Desk.png").convert_alpha()
+        self.red = pygame.image.load("assets/Desk.png").convert_alpha()
+        self.red_1 = pygame.image.load("assets/Desk.png").convert_alpha()
+        self.playerRight = pygame.image.load("assets/bawa.jump.png").convert_alpha()
+        self.playerRight_1 = pygame.image.load("assets/bawa.jump.png").convert_alpha()
+        self.playerLeft = pygame.image.load("assets/bawa.jump.png").convert_alpha()
+        self.playerLeft_1 = pygame.image.load("assets/bawa.jump.png").convert_alpha()
+        self.spring = pygame.image.load("assets/Spring.png").convert_alpha()
+        self.spring_1 = pygame.image.load("assets/Spring.png").convert_alpha()
         self.direction = 0
         self.playerx = 400
         self.playery = 400
@@ -32,10 +32,10 @@ class DoodleJump:
     def updatePlayer(self):
         if not self.jump:        
             self.playery += self.gravity
-            self.gravity += 1
+            self.gravity += 2
         elif self.jump:
             self.playery -= self.jump
-            self.jump -= 1
+            self.jump -= 2
         key = pygame.key.get_pressed()
         if key[K_RIGHT]:
             if self.xmovement < 10:
@@ -75,7 +75,7 @@ class DoodleJump:
             player = pygame.Rect(self.playerx, self.playery, self.playerRight.get_width() - 10, self.playerRight.get_height())
             if rect.colliderect(player) and self.gravity and self.playery < (p[1] - self.cameray):
                 if p[2] != 2:
-                    self.jump = 15
+                    self.jump = 20
                     self.gravity = 0
                 else:
                     p[-1] = 1
